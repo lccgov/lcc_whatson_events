@@ -4,13 +4,20 @@ var sass = require('gulp-sass');
 var notify = require('gulp-notify');
 var spsync = require('gulp-spsync-creds').sync;
 var settings = require('./settings.json');
+var rmdir = require('rmdir');
+
+gulp.task('clean:dist', (done) => {
+    rmdir('./dist', function (err, dirs, files) {
+        done();
+    });
+});
 
 //Sync assets to public folder excluding SASS files
-gulp.task('sync:assets', (done) => {
+gulp.task('sync:assets', ['clean:dist'], (done) => {
     syncy(['app/assets/**/*', '!app/assets/sass/**'], './dist/_catalogs/masterpage/public', {
             ignoreInDest: '**/stylesheets/**',
             base: 'app/assets',
-            updateAndDelete: true
+            updateAndDelete: false
         }).then(() => { 
             done();
     }).catch((err) => { done(err);})
@@ -20,7 +27,7 @@ gulp.task('sync:assets', (done) => {
 gulp.task('sync:lcc_frontend_toolkit', ['sync:assets'], (done) => {
     syncy(['node_modules/lcc_frontend_toolkit/**'], 'lcc_modules/lcc_frontend_toolkit', {
             base: 'node_modules/lcc_frontend_toolkit',
-            updateAndDelete: true
+            updateAndDelete: false
         }).then(() => { 
             done();
     }).catch((err) => { done(err);})
@@ -30,7 +37,7 @@ gulp.task('sync:lcc_frontend_toolkit', ['sync:assets'], (done) => {
 gulp.task('sync:lcc_templates_sharepoint_assets', ['sync:lcc_frontend_toolkit'], (done) => {
     syncy(['node_modules/lcc_templates_sharepoint/assets/**/*'], 'dist/_catalogs/masterpage/public', {
             base: 'node_modules/lcc_templates_sharepoint/assets',
-            updateAndDelete: true
+            updateAndDelete: false
         }).then(() => { 
             done();
     }).catch((err) => { done(err);})
@@ -66,4 +73,4 @@ gulp.task('sp-upload', ['sass'], (done) => {
     }));
 });
 
-gulp.task('default',  ['sync:assets', 'sync:lcc_frontend_toolkit', 'sync:lcc_templates_sharepoint_assets', 'sync:lcc_templates_sharepoint_views', 'sass', 'sp-upload']);
+gulp.task('default',  ['clean:dist', 'sync:assets', 'sync:lcc_frontend_toolkit', 'sync:lcc_templates_sharepoint_assets', 'sync:lcc_templates_sharepoint_views', 'sass', 'sp-upload']);
