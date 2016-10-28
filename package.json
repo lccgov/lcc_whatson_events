@@ -21,8 +21,8 @@
     "gulp-notify": "^2.2.0",
     "gulp-sass": "^2.3.2",
     "gulp-spsync-creds": "^2.2.6",
-    "lcc_frontend_toolkit": "^0.23.0",
-    "lcc_templates_sharepoint": "^1.0.23",
+    "lcc_frontend_toolkit": "^0.24.0",
+    "lcc_templates_sharepoint": "^1.0.28",
     "rmdir": "^1.2.0",
     "syncy": "^2.0.1"
   }
