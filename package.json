@@ -25,7 +25,7 @@
     "gulp-sass": "^2.3.2",
     "gulp-spsync-creds": "^2.2.6",
     "lcc_frontend_toolkit": "^0.26.0",
-    "lcc_templates_sharepoint": "^1.0.48",
+    "lcc_templates_sharepoint": "^1.0.50",
     "rmdir": "^1.2.0",
     "root-require": "^0.3.1",
     "syncy": "^2.0.1"

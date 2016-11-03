@@ -53,7 +53,7 @@ $promo-group-link-color:#333 !default;
 //@import 'base';
 //@import 'cookieBanner';
 //@import 'masterHead';
-@import 'mainMenu';
+//@import 'mainMenu';
 @import 'breadcrumb';
 @import 'variables';
 @import 'mixins';
@@ -76,6 +76,7 @@ $promo-group-link-color:#333 !default;
 
 body{
     font-weight:300;
+
 }
 
 
@@ -108,12 +109,8 @@ body{
       }
 
 
-.sectionOne{
-    background:#fff;
-    color:#333;
-}
 .sectionTwo{
-    background:#1f2c38;
+    background:#161f28;
 }
 
 
@@ -121,4 +118,14 @@ body{
 .header-left {
     width:100%;
 }
+
+
+.sectionOne{
+    background:#fff;
+    h1, h2, h3, h4, h5, ul, ol, p, input, span {
+    font-family:$font-primary;
+    color:#333;
+}
+}
+
 
