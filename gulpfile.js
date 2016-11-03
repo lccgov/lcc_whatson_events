@@ -9,6 +9,9 @@ var rename = require("gulp-rename");
 var packageName = require('root-require')('package.json').name;
 var util = require('util');
 var htmlreplace = require('gulp-html-replace');
+var Guid = require('guid');
+
+var guid = Guid.raw().replace(/-/g, '');
 
 gulp.task('clean:dist', (done) => {
     rmdir('./dist', function (err, dirs, files) {
@@ -61,7 +64,7 @@ gulp.task('sync:lcc_templates_sharepoint_views', ['sync:lcc_templates_sharepoint
 gulp.task('sync:lcc_templates_sharepoint_master', ['sync:lcc_templates_sharepoint_views'], (done) => {
     gulp.src("node_modules/lcc_templates_sharepoint/views/lcc-template.master")
     .pipe(htmlreplace({
-        'css': util.format('/_catalogs/masterpage/public/stylesheets/%s.css', packageName)
+        'css': util.format('/_catalogs/masterpage/public/stylesheets/%s-%s.css', packageName.replace(/_/g, '-'), guid)
     })).pipe(rename(util.format("%s.master", packageName))).pipe(gulp.dest("./dist/_catalogs/masterpage")).on('end', function() { done(); });
 })
 
@@ -73,7 +76,7 @@ gulp.task('sass', ['sync:lcc_templates_sharepoint_master'], (done) => {
           notify({ title: 'SASS Task' }).write(err.line + ': ' + err.message);
           this.emit('end');
       }))
-      .pipe(rename(util.format("%s.css", packageName)))
+      .pipe(rename(util.format("%s-%s.css", packageName.replace(/_/g, '-'), guid)))
       .pipe(gulp.dest('./dist/_catalogs/masterpage/public/stylesheets'))
 });
 
