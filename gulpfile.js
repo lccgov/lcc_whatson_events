@@ -79,7 +79,7 @@ gulp.task('sass', ['sync:lcc_templates_sharepoint_master'], (done) => {
 });
 
 gulp.task('sp-upload', ['sass'], (done) => {
-    gulp.src('./dist/**').pipe(spsync({
+    gulp.src('./dist/**/*.*').pipe(spsync({
         "username": settings.username,
         "password": settings.password,
         "site": settings.siteUrl,
