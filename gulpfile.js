@@ -32,7 +32,7 @@ gulp.task('sync:assets', ['clean:dist'], (done) => {
 gulp.task('sync:lcc_frontend_toolkit', ['sync:assets'], (done) => {
     syncy(['node_modules/lcc_frontend_toolkit/**'], 'lcc_modules/lcc_frontend_toolkit', {
             base: 'node_modules/lcc_frontend_toolkit',
-            updateAndDelete: false
+            updateAndDelete: true
         }).then(() => { 
             done();
     }).catch((err) => { done(err);})

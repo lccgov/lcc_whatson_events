@@ -3,8 +3,10 @@
 
 
 // headerTop.scss -- responsive icons color
-$menu-link-color:#fff;
-$search-link-background:#e7cc26;
+$menu-link-color:#333;
+$search-link-background:#F3F3F4;
+$search-link:#333;
+
 
 $base-background-color:#2c3e50;
 $base-font-size:16px;
@@ -19,7 +21,7 @@ $base-margin-bottom:20px;
 $main-nav-background:lighten(#161f28,5%);
 // masterhead.scss
 
-$head-background:  darken($main-nav-background,10%);
+$head-background:#fff;
 
 //footer.scss
 $footer-nav-link:#fff;
@@ -28,7 +30,7 @@ $footer-nav-link:#fff;
 $section-Background:#efefef;
 
 //  socialamedia.scss
-$social-link-color:#BA000E;
+$social-link-color:#e7cc26;
 
 
 //  sideNavigation.scss
@@ -50,10 +52,20 @@ $promo-group-background:#ddd;
 $promo-group-li-background:#fff;
 $promo-group-link-color:#333 !default;
 
+//promolist webpart
+$link-font-color:#fff;
+$span-info-color:#222E3C;
+$span-info-hover:#131A22;
+$span-info-secondary-color:#E6CC26;
+$span-arrow-base:#131A22;
+$span-third-info-base:#fff;
+$third-info-font-color:#333;
+
+
 //@import 'base';
 //@import 'cookieBanner';
 //@import 'masterHead';
-//@import 'mainMenu';
+@import 'mainMenu';
 @import 'breadcrumb';
 @import 'variables';
 @import 'mixins';
@@ -74,17 +86,12 @@ $promo-group-link-color:#333 !default;
 
 
 
+
 body{
     font-weight:300;
-
 }
 
 
-.masterhead{
-    a.navbar-brand {
-    background: url(../img/lcclogo.svg) center center no-repeat;
-}
-}
 
 // logo overides to accomodate diiferent logo aspect ratios
 .sectionHeader{
@@ -99,7 +106,7 @@ body{
         height:192px;
         width:100%;
         background:url(../img/logo.svg) center top no-repeat;
-        margin-bottom:-20px;
+        margin:-20px 0;
 
         @media (max-width: 767px){
             width:100%;
@@ -109,23 +116,44 @@ body{
       }
 
 
-.sectionTwo{
-    background:#161f28;
-}
-
-
 
 .header-left {
     width:100%;
 }
 
 
+
+
+
+.sectionTwo{
+    background:#161f28;
+}
+
+
+
+
 .sectionOne{
     background:#fff;
-    h1, h2, h3, h4, h5, ul, ol, p, input, span {
+    color:#333;
+    h1, h2, h3, h4, h5, ul, ol, p, {
     font-family:$font-primary;
     color:#333;
 }
+
 }
+
+.eventsContentPod h3, .venuesContentPod h3 {
+    margin-top: 0px;
+    color: #006da5;
+}
+
+.breadcrumb span,  span.eventDetailsBlockIcon , label span {
+    color:#333;
+}
+
+
+
+
+
 
 
