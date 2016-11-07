@@ -79,7 +79,8 @@ gulp.task('sass', ['sync:lcc_templates_sharepoint_master'], (done) => {
 });
 
 gulp.task('sp-upload', ['sass'], (done) => {
-    gulp.src('./dist/**/*.*').pipe(spsync({
+    return gulp.src('dist/**/*.*')
+    .pipe(spsync({
         "username": settings.username,
         "password": settings.password,
         "site": settings.siteUrl,
@@ -106,7 +107,8 @@ gulp.task('sp-upload', ['sass'], (done) => {
                 }
             }
         ]
-    }));
+    })
+    );
 });
 
 gulp.task('default',  ['clean:dist', 'sync:assets', 'sync:lcc_frontend_toolkit', 'sync:lcc_templates_sharepoint_assets', 'sync:lcc_templates_sharepoint_views', 'sync:lcc_templates_sharepoint_master', 'sass']);
