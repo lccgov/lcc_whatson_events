@@ -82,13 +82,14 @@ $third-info-font-color:#333;
 @import 'promoListwebpart';
 @import 'eventsWebparts';
 @import 'brandColors';
-
+@import 'sharepointOverides';
 
 
 
 
 body{
     font-weight:300;
+    overflow:scroll;
 }
 
 
@@ -150,10 +151,5 @@ body{
 .breadcrumb span,  span.eventDetailsBlockIcon , label span {
     color:#333;
 }
-
-
-
-
-
 
 
