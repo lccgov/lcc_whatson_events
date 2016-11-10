@@ -60,7 +60,7 @@ gulp.task('sync:lcc_templates_sharepoint_assets', ['sync:lcc_frontend_toolkit'],
 
 //Sync lcc_templates_sharepoint/assets/stylesheets to dist/_catalogs/masterpages/public/stylesheets
 gulp.task('sync:lcc_templates_sharepoint_stylesheets', ['sync:lcc_templates_sharepoint_assets'], (done) => {
-    return gulp.src('node_modules/lcc_templates_sharepoint/assets/stylesheets/**')
+    return gulp.src('node_modules/lcc_templates_sharepoint/assets/stylesheets/*.css')
         //don't clean if gulp is ran with '--debug'
         .pipe(gutil.env.debug ? gutil.noop() : cleanCSS({processImport:false}))
         .pipe(gulp.dest('dist/_catalogs/masterpage/public/stylesheets'));

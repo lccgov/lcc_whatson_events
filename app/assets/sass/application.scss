@@ -60,6 +60,11 @@ $span-info-secondary-color:#E6CC26;
 $span-arrow-base:#131A22;
 $span-third-info-base:#fff;
 $third-info-font-color:#333;
+$arrow-color:#E6CC26;
+$contentFontColor:#fff;
+$content-arrow-color:#E6CC26;
+$content-border-color:#ddd;
+
 
 
 //@import 'base';
@@ -83,16 +88,20 @@ $third-info-font-color:#333;
 @import 'eventsWebparts';
 @import 'brandColors';
 @import 'sharepointOverides';
+//@import 'iconLinks';
+//@import 'heroBanner';
+
 
 
 
 
 body{
     font-weight:300;
-    overflow:scroll;
 }
 
-
+.masterhead input {
+    color:#333;
+}
 
 // logo overides to accomodate diiferent logo aspect ratios
 .sectionHeader{
@@ -106,7 +115,7 @@ body{
  .logo{
         height:192px;
         width:100%;
-        background:url(../img/logo.svg) center top no-repeat;
+        background:url(../images/logo.svg) center top no-repeat;
         margin:-20px 0;
 
         @media (max-width: 767px){
@@ -151,5 +160,10 @@ body{
 .breadcrumb span,  span.eventDetailsBlockIcon , label span {
     color:#333;
 }
+
+
+
+
+
 
 
