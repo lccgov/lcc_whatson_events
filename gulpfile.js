@@ -9,7 +9,8 @@ var rename = require("gulp-rename");
 var packageName = require('root-require')('package.json').name;
 var util = require('util');
 var htmlreplace = require('gulp-html-replace');
-var Guid = require('guid');
+var uglify = require('gulp-uglify');
+var cleanCSS = require('gulp-clean-css');
 
 gulp.task('clean:dist', (done) => {
     rmdir('./dist', function (err, dirs, files) {
@@ -17,9 +18,9 @@ gulp.task('clean:dist', (done) => {
     });
 });
 
-//Sync assets to public folder excluding SASS files
+//Sync assets to public folder excluding SASS files and JS
 gulp.task('sync:assets', ['clean:dist'], (done) => {
-    syncy(['app/assets/**/*', '!app/assets/sass/**'], './dist/_catalogs/masterpage/public', {
+    syncy(['app/assets/**/*', '!app/assets/sass/**',  '!app/assets/javascripts/**'], './dist/_catalogs/masterpage/public', {
             ignoreInDest: '**/stylesheets/**',
             base: 'app/assets',
             updateAndDelete: false
@@ -28,8 +29,15 @@ gulp.task('sync:assets', ['clean:dist'], (done) => {
     }).catch((err) => { done(err);})
 });
 
+//Sync app/assets/javascripts to dist/_catalogs/masterpages/public/javascripts
+gulp.task('sync:javascripts', ['sync:assets'], (done) => {
+    return gulp.src('app/assets/javascripts/**')
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/_catalogs/masterpage/public/javascripts'));
+})
+
 //Sync lcc_frontend_toolkit to lcc_modules to be used for SASS partial compilation
-gulp.task('sync:lcc_frontend_toolkit', ['sync:assets'], (done) => {
+gulp.task('sync:lcc_frontend_toolkit', ['sync:javascripts'], (done) => {
     syncy(['node_modules/lcc_frontend_toolkit/**'], 'lcc_modules/lcc_frontend_toolkit', {
             base: 'node_modules/lcc_frontend_toolkit',
             updateAndDelete: true
@@ -38,9 +46,9 @@ gulp.task('sync:lcc_frontend_toolkit', ['sync:assets'], (done) => {
     }).catch((err) => { done(err);})
 });
 
-//Sync lcc_templates_sharepoint/assets to dist/_catalogs/masterpages/public
+//Sync lcc_templates_sharepoint/assets excluding JS to dist/_catalogs/masterpages/public
 gulp.task('sync:lcc_templates_sharepoint_assets', ['sync:lcc_frontend_toolkit'], (done) => {
-    syncy(['node_modules/lcc_templates_sharepoint/assets/**/*'], 'dist/_catalogs/masterpage/public', {
+    syncy(['node_modules/lcc_templates_sharepoint/assets/**/*', '!node_modules/lcc_templates_sharepoint/assets/javascripts/*'], 'dist/_catalogs/masterpage/public', {
             base: 'node_modules/lcc_templates_sharepoint/assets',
             updateAndDelete: false
         }).then(() => { 
@@ -48,8 +56,15 @@ gulp.task('sync:lcc_templates_sharepoint_assets', ['sync:lcc_frontend_toolkit'],
     }).catch((err) => { done(err);})
 })
 
+//Sync lcc_templates_sharepoint/assets/javascripts to dist/_catalogs/masterpages/public/javascripts
+gulp.task('sync:lcc_templates_sharepoint_javascript', ['sync:lcc_templates_sharepoint_assets'], (done) => {
+    return gulp.src('node_modules/lcc_templates_sharepoint/assets/javascripts/**')
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/_catalogs/masterpage/public/javascripts'));
+})
+
 //Sync lcc_templates_sharepoint/views to dist/_catalogs/masterpages
-gulp.task('sync:lcc_templates_sharepoint_views', ['sync:lcc_templates_sharepoint_assets'], (done) => {
+gulp.task('sync:lcc_templates_sharepoint_views', ['sync:lcc_templates_sharepoint_javascript'], (done) => {
     syncy(['node_modules/lcc_templates_sharepoint/views/*', '!node_modules/lcc_templates_sharepoint/views/lcc-template.master'], 'dist/_catalogs/masterpage', {
             base: 'node_modules/lcc_templates_sharepoint/views',
             updateAndDelete: false
@@ -62,7 +77,7 @@ gulp.task('sync:lcc_templates_sharepoint_views', ['sync:lcc_templates_sharepoint
 gulp.task('sync:lcc_templates_sharepoint_master', ['sync:lcc_templates_sharepoint_views'], (done) => {
     gulp.src("node_modules/lcc_templates_sharepoint/views/lcc-template.master")
     .pipe(htmlreplace({
-        'css': util.format('/_catalogs/masterpage/public/stylesheets/%s.css', packageName.replace(/_/g, '-'))
+        'css': util.format('/_catalogs/masterpage/public/stylesheets/%s.min.css', packageName.replace(/_/g, '-'))
     })).pipe(rename(util.format("%s.master", packageName))).pipe(gulp.dest("./dist/_catalogs/masterpage")).on('end', function() { done(); });
 })
 
@@ -72,9 +87,9 @@ gulp.task('sass', ['sync:lcc_templates_sharepoint_master'], (done) => {
       .pipe(sass({includePaths: ['./app/assets/sass',
             'lcc_modules/lcc_frontend_toolkit/stylesheets/']}).on('error', function (err) {
           notify({ title: 'SASS Task' }).write(err.line + ': ' + err.message);
-          this.emit('end');
       }))
-      .pipe(rename(util.format("%s.css", packageName.replace(/_/g, '-'))))
+      .pipe(cleanCSS({ processImport: false }))
+      .pipe(rename(util.format("%s.min.css", packageName.replace(/_/g, '-'))))
       .pipe(gulp.dest('./dist/_catalogs/masterpage/public/stylesheets'))
 });
 
@@ -111,5 +126,5 @@ gulp.task('sp-upload', ['sass'], (done) => {
     );
 });
 
-gulp.task('default',  ['clean:dist', 'sync:assets', 'sync:lcc_frontend_toolkit', 'sync:lcc_templates_sharepoint_assets', 'sync:lcc_templates_sharepoint_views', 'sync:lcc_templates_sharepoint_master', 'sass']);
+gulp.task('default',  ['clean:dist', 'sync:assets', 'sync:javascripts', 'sync:lcc_frontend_toolkit', 'sync:lcc_templates_sharepoint_assets', 'sync:lcc_templates_sharepoint_javascript', 'sync:lcc_templates_sharepoint_views', 'sync:lcc_templates_sharepoint_master', 'sass']);
 gulp.task('upload',  ['default', 'sp-upload']);
