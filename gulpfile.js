@@ -12,6 +12,7 @@ var htmlreplace = require('gulp-html-replace');
 var uglify = require('gulp-uglify');
 var cleanCSS = require('gulp-clean-css');
 var gutil = require('gulp-util');
+var sourcemaps = require('gulp-sourcemaps')
 
 gulp.task('clean:dist', (done) => {
     rmdir('./dist', function (err, dirs, files) {
@@ -95,10 +96,12 @@ gulp.task('sync:lcc_templates_sharepoint_master', ['sync:lcc_templates_sharepoin
 //Compile SASS into the application CSS and copy to public folder
 gulp.task('sass', ['sync:lcc_templates_sharepoint_master'], (done) => {
     return gulp.src('app/assets/sass/application.scss')
+      .pipe(gutil.env.debug ? sourcemaps.init() : gutil.noop())
       .pipe(sass({includePaths: ['./app/assets/sass',
             'lcc_modules/lcc_frontend_toolkit/stylesheets/']}).on('error', function (err) {
           notify({ title: 'SASS Task' }).write(err.line + ': ' + err.message);
       }))
+      .pipe(gutil.env.debug ? sourcemaps.write() : gutil.noop())
       //don't clean if gulp is ran with '--debug'
       .pipe(gutil.env.debug ? gutil.noop() : cleanCSS({ processImport: false }))
       .pipe(rename(util.format("%s.css", packageName.replace(/_/g, '-'))))
