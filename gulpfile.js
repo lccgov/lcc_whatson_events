@@ -12,7 +12,9 @@ var htmlreplace = require('gulp-html-replace');
 var uglify = require('gulp-uglify');
 var cleanCSS = require('gulp-clean-css');
 var gutil = require('gulp-util');
-var sourcemaps = require('gulp-sourcemaps')
+var sourcemaps = require('gulp-sourcemaps');
+var fileExists = require('file-exists');
+var fs = require('fs');
 
 gulp.task('clean:dist', (done) => {
     rmdir('./dist', function (err, dirs, files) {
@@ -85,12 +87,18 @@ gulp.task('sync:lcc_templates_sharepoint_views', ['sync:lcc_templates_sharepoint
     }).catch((err) => { done(err);})
 })
 
+var replacements = {};
+
+replacements.css =  util.format('/_catalogs/masterpage/public/stylesheets/%s.css', packageName.replace(/_/g, '-'));
+if(fileExists('./socialBookmarks.html')) {
+    replacements.socialBookmarks = fs.readFileSync('socialBookmarks.html').toString()
+}
+
 //Update app css ref and rename master
 gulp.task('sync:lcc_templates_sharepoint_master', ['sync:lcc_templates_sharepoint_views'], (done) => {
     gulp.src("node_modules/lcc_templates_sharepoint/views/lcc-template.master")
-    .pipe(htmlreplace({
-        'css': util.format('/_catalogs/masterpage/public/stylesheets/%s.css', packageName.replace(/_/g, '-'))
-    })).pipe(rename(util.format("%s.master", packageName))).pipe(gulp.dest("./dist/_catalogs/masterpage")).on('end', function() { done(); });
+    .pipe(htmlreplace(replacements, {keepUnassigned:true}))
+    .pipe(rename(util.format("%s.master", packageName))).pipe(gulp.dest("./dist/_catalogs/masterpage")).on('end', function() { done(); });
 })
 
 //Compile SASS into the application CSS and copy to public folder
