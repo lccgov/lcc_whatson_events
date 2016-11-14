@@ -115,7 +115,7 @@ gulp.task('sp-upload', ['sass'], (done) => {
         "password": settings.password,
         "site": settings.siteUrl,
         "publish": true,
-        "verbose": true,
+        "verbose": false,
         "update_metadata":true,
         "files_metadata": [
             {
