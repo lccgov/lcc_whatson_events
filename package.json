@@ -21,6 +21,7 @@
     "file-system": "^2.2.1",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.13",
+    "gulp-foreach": "^0.1.0",
     "gulp-html-replace": "^1.6.1",
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.2",
