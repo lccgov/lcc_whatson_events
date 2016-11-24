@@ -18,13 +18,6 @@ var fs = require('fs');
 var foreach = require('gulp-foreach');
 var path = require('path');
 
-function getFolders(dir) {
-    return fs.readdirSync(dir)
-      .filter(function(file) {
-        return fs.statSync(path.join(dir, file)).isDirectory();
-      });
-}
-
 gulp.task('clean:dist', (done) => {
     rmdir('./dist', function (err, dirs, files) {
         done();
@@ -151,8 +144,17 @@ gulp.task('sync:subsites_master', ['sass:subsites'], (done) => {
     return gulp.src('app/assets/*_subsite/', ['!app/assets/*_subsite/**/*.*'])
         .pipe(foreach(function(stream, folder) {  
             var subsiteName = folder.path.split(path.sep).pop();
+            var replacements = {};
+            replacements.css =  util.format('/_catalogs/masterpage/public/%s/stylesheets/application.css', subsiteName);
+
+            if(fileExists(folder.path + '/socialBookmarks.html')) {
+                replacements.socialBookmarks = fs.readFileSync(folder.path + '/socialBookmarks.html').toString()
+            } else if(fileExists('./socialBookmarks.html')) {
+                 replacements.socialBookmarks = fs.readFileSync('socialBookmarks.html').toString()
+            }
+
             return gulp.src("node_modules/lcc_templates_sharepoint/views/lcc-template.master")
- 	            .pipe(htmlreplace({ css: util.format('/_catalogs/masterpage/public/%s/stylesheets/application.css', subsiteName) }, {keepUnassigned:true}))
+ 	            .pipe(htmlreplace(replacements, {keepUnassigned:true}))
                 .pipe(rename(util.format("lcc_%s.master", subsiteName))).pipe(gulp.dest("./dist/_catalogs/masterpage"));
         }));
 });
