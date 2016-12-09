@@ -160,7 +160,8 @@ gulp.task('sync:subsites_master', ['sass:subsites'], (done) => {
 });
 
 gulp.task('sp-upload', ['sync:subsites_master'], (done) => {
-    return gulp.src('dist/**/*.*')
+    var glob = gutil.env.css ? 'dist/**/*.css' :'dist/**/*.*';
+    return gulp.src(glob)
     .pipe(spsync({
         "username": settings.username,
         "password": settings.password,
