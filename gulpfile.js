@@ -39,7 +39,7 @@ gulp.task('sync:assets', ['clean:dist'], (done) => {
 gulp.task('sync:javascripts', ['sync:assets'], (done) => {
     return gulp.src('app/assets/javascripts/**')
         //don't uglify if gulp is ran with '--debug'
-        .pipe(gutil.env.debug ? gutil.noop() : uglify())
+        .pipe(gutil.env.debug ? gutil.noop() : uglify({preserveComments: 'all'}))
         .pipe(gulp.dest('dist/_catalogs/masterpage/public/javascripts'));
 });
 
@@ -75,7 +75,7 @@ gulp.task('sync:lcc_templates_sharepoint_stylesheets', ['sync:lcc_templates_shar
 gulp.task('sync:lcc_templates_sharepoint_javascript', ['sync:lcc_templates_sharepoint_stylesheets'], (done) => {
     return gulp.src('node_modules/lcc_templates_sharepoint/assets/javascripts/**')
         //don't uglify if gulp is ran with '--debug'
-        .pipe(gutil.env.debug ? gutil.noop() : uglify())
+        .pipe(gutil.env.debug ? gutil.noop() : uglify({preserveComments: 'all'}))
         .pipe(gulp.dest('dist/_catalogs/masterpage/public/javascripts'));
 });
 
