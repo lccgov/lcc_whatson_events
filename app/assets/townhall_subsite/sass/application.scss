@@ -30,7 +30,7 @@ $base-highlight-color:#A93723;
 //$search-link:#333 ;
 
 // mainNav.scss
-$main-nav-background:rgba(89,171,225,.4);
+$main-nav-background:rgba(#52a4ce,0.3);
 //$main-nav-link:#fff ;
 
 //footer.scss
@@ -65,11 +65,11 @@ $main-nav-background:rgba(89,171,225,.4);
 
 //promolist webpart
 //$link-font-color:#fff;
-//$span-info-color:#133E8D;
-//$span-info-hover:#131A22;
-//$span-info-secondary-color:#fff;
-//$span-arrow-base:darken($span-info-color, 10%);
-//$span-third-info-base:#f6f6f6;
+$span-info-color:#52a4ce;
+$span-info-hover:darken(#52a4ce,15%);
+$span-info-secondary-color:#131921;
+$span-arrow-base:darken($span-info-color, 15%);
+$span-third-info-base:#fff;
 //$third-info-font-color:#333;
 //$arrow-color:#fff;
 //$contentFontColor:#333;
@@ -77,9 +77,9 @@ $main-nav-background:rgba(89,171,225,.4);
 //$content-border-color:#ddd;
 
 // section backgrounds
-$sectionHeader-background-color:rgba(255,255,255,.2);
+$sectionHeader-background-color:rgba(255,255,255,0.2);
 $sectionOne-background-color:#fff;
-$sectionTwo-background-color:#000;
+$sectionTwo-background-color:  rgba(0,0,0,0.5);
 $sectionThree-background-color:#333;
 $sectionFour-background-color:#000;
 $sectionFive-background-color:#333;
@@ -91,7 +91,7 @@ $sectionFive-background-color:#333;
 //$heroFontBackground:rgba(0, 0, 0, 0.5); 
 //$heroFontcolor:#fff; 
 
-$eventsfilter-hightlight-color:#2E110F;
+$eventsfilter-hightlight-color:#A93723;
 
 @import 'mixins';
 @import 'variables';
@@ -174,7 +174,8 @@ body,.ms-backgroundImage {
 
  .main-nav {
 
-    margin:0 0 0 0;
+    margin-top:-20px;
+    padding:10px 0 0px 0;
     text-align: center;
 
 	li{
@@ -182,7 +183,10 @@ body,.ms-backgroundImage {
 	}	
 
     a{
-        background:#52a4ce;
+        background:rgba(#52a4ce,0.8);
+        &:hover{
+             background:darken(#52a4ce, 45%) !important ;
+        }
     }
 
     li li 
@@ -203,4 +207,60 @@ body,.ms-backgroundImage {
 }
 
 
+footer.main   {
+    background:rgba(0,0,0,0.5);
 
+    .footerGlobal{
+        background:rgba(0,0,0,0.8);
+    }
+}
+
+
+
+.promoListWebpart ul li.catergory a {
+
+background-size:540px !important; 
+background-position:top center!important;   
+
+
+
+img{
+    text-align: center;
+}
+
+.info {
+    background: rgba(0,0,0,0);
+    width: 100%;
+    opacity: 1;
+    border-top: 1px solid #888;
+    font-size: 18px;
+    text-transform: uppercase;   
+    opacity: 1;
+    filter: alpha(opacity=1);
+
+
+    .arrow{
+        background:transparent;
+
+
+        &:after{
+            display:none;
+        }
+    }
+}
+
+}
+
+
+@media only screen and (max-width:768px){
+    ul.menu li a.main-menu {
+    background: rgba(82,164,206,1)!important;
+    color: #fff;
+}
+
+.main-nav {
+    background: rgba(82,164,206,1);
+    margin-top:0px;
+}
+
+}

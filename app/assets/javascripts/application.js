@@ -100,5 +100,37 @@
     global.LCC = LCC;
 
 })(window, jQuery);
-        
+
+
+(function (global, $) {
+    "use strict";
+    var LCC = global.LCC || {};
+	    LCC.SearchFilter = LCC.SearchFilter || {};
+
+    $(document).ready(function () {
+        LCC.SearchFilter.addClickEvent();
+    });
+
+    LCC.SearchFilter.addClickEvent = function () {
+                 $('#filterhide a').click(function (event) {
+                event.preventDefault();
+                $('.eventsFilter.col-md-3').toggleClass("active");
+            });
+            $('#filterCloseButton a').click(function (event) {
+                event.preventDefault();
+                $('.eventsFilter.col-md-3.active').removeClass("active");
+            });
+            $('#closeIcon').click(function (event) {
+                event.preventDefault();
+                $('.eventsFilter.col-md-3.active').removeClass("active");
+            });
+    };
+
+    global.LCC = LCC;
+
+})(window, jQuery);
+
+
+
+ 
 
