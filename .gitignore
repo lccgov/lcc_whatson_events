@@ -2,3 +2,4 @@ dist/
 node_modules/
 lcc_modules/
 settings.json
+settings.default.json
