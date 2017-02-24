@@ -1,0 +1,4 @@
+{
+    "webparts": ["LCCNewsArchiveFilter", "LCCNewsDateFilter", "LCCNewsKeywordFilter", "LCCNewsResults", "LCCNewsResultsSearch"],
+    "footerSubsites": ["carriageworks_subsite","germanchristmasmarket_subsite","leedsConcertSeason_subsite", "townhall_subsite","lightnight_subsite"]
+}

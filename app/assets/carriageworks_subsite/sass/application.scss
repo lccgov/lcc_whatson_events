@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,700,800,400,600');
+// available variables to change the brand colours as required
+// masterhead.scss
+
+//$head-background: #ffffff;
+
+
+//base.scss
+
+$base-background-color:#fff;
+$base-font-size:18px ;
+$base-font-color:#333 ;
+$base-link-color:#59abe1 ;
+//$base-container-width:1500px ;
+$btn-background-color:#7d2680;
+$font-primary:'Oswald', Helvetica, Arial; // main font
+$font-secondary:'Oswald', Helvetica, Arial; // secondary font
+$base-highlight-color:#A93723;
+
+
+// global used on all partials to get a uniform spacing between elements
+//$base-margin-bottom:1.875em ;
+
+//headerTop
+//$search-link-background:#F3F3F4 ;
+//$search-link:#333 ;
+
+// mainNav.scss
+$main-nav-background:#7d2680;
+//$main-nav-link:#fff ;
+
+//footer.scss
+//$footer-font-color:#fff ;
+//$footer-nav-selected-link:#133E8D ;
+
+// sectionSubsite.scss - socialamedia.scss
+//$section-Background:#efefef ;
+
+//  socialamedia.scss
+//$social-link-color:#337ab7 ;
+
+//  sideNavigation.scss
+//$side-nav-active-background:#133E8D ;
+
+//  carousel.scss
+//$carousel-active-background:#000 ;
+//$carousel-indicators-active-background:#ccc ;
+//$carousel-caption-background: rgba(0,0,0,0.6) ;
+//$carousel-caption-font-color:#fff ;
+
+
+// blocklinks.scss
+
+//$block-link-back:#f6f6f6 ;
+//$block-link-back-hover:#3380A4 ;
+//$promo-group-border:1px solid #fff ; 
+//$promo-group-background:#EDF2F5 ; 
+//$promo-group-li-background:#EDF2F5 ;
+//$promo-group-link-color:#216486 ;
+
+$accordion-color:#7d2680;
+
+
+//promolist webpart
+//$link-font-color:#fff;
+$span-info-color:#7d2680;
+$span-info-hover:darken(#7d2680,15%);
+$span-info-secondary-color:#fff;
+$span-arrow-base:darken($span-info-color, 15%);
+$span-third-info-base:#fff;
+//$third-info-font-color:#333;
+//$arrow-color:#fff;
+$contentFontColor:#fff;
+$content-arrow-color:#fff;
+$content-border-color:#fff;
+
+// section backgrounds
+$sectionHeader-background-color:#952d98;
+$sectionOne-background-color:#fff;
+$sectionTwo-background-color:  #007c92;
+$sectionThree-background-color:#0098db;
+$sectionFour-background-color:#ca005d;
+$sectionFive-background-color:#7d2680;
+
+/* iconLinks -----------------------------------------------------------------*/
+
+
+ $iconLinkBorderColor:#fff;
+ $iconLinkIconColor:#0098db;
+
+
+//heroBanner
+//$heroFontBackground:rgba(0, 0, 0, 0.5); 
+//$heroFontcolor:#fff; 
+
+$eventsfilter-hightlight-color:#333;
+
+@import 'mixins';
+@import 'variables';
+@import 'brandColors';
+
+// available sass files please un-comment out as required
+
+//@import 'mainMenuSubsites';
+@import 'breadcrumb';
+@import 'sectionSubsite';
+@import 'promo';
+@import 'carousel';
+//@import 'socialMedia';
+//@import 'sideNavigation';
+//@import 'blockLinks';
+@import 'accordion';
+@import 'promoGroup';
+@import 'alerts';
+@import 'promoListwebpart';
+@import 'eventsWebparts';
+@import 'sharepointOverides';
+@import 'iconLinks';
+@import 'heroBanner';
+@import 'pageNavigation';
+@import '../sass/eventItem';
+
+
+body,.ms-backgroundImage {
+    font-weight:300;
+}
+
+
+a:visited {
+    color: $base-link-color;
+    text-decoration: none;
+}
+
+
+
+.sectionHeader{
+
+
+
+ 
+
+        
+ .logo{
+        height:192px;
+        width:100%;
+        background:url(../images/logo.svg) center top no-repeat;
+        margin:0;
+
+
+        @media (max-width: 767px){
+            width:100%;
+        }
+
+    }
+      }
+
+.header-left {
+    width:100%;
+}
+
+.sectionTwo, .sectionThree, .sectionFour, .sectionFive  {
+    p,h1,h2,h3,h4,h5, ul, ol, div, a{
+        color:#fff !important;
+    }
+
+    a:link{
+        text-decoration: underline;
+    }
+
+           div.ms-rteElement-divFull, div.ms-rteElement-divRight, div.ms-rteElement-divRight50, .ms-rteElement-divLeft, .ms-rteElement-divThird {
+    border: 1px solid #fff;
+       h2,h3 {
+    border-bottom: 1px solid #ddd;
+
+}
+
+           }
+
+ 
+     a.btn{
+         background:#fff;
+         border-color:rgba(0,0,0,0.05);
+         color:#333 !important;
+         text-decoration: none;
+
+         &:hover{
+             border-color:#333;
+             color:#fff !important;
+         }
+
+
+     }  
+
+     .promoListWebpart ul li.catergory a,  .promoListWebpart ul li.catergory a .info  {
+    border-color:#fff;
+}
+}
+
+.sectionOne{
+        div.ms-rteElement-divFull, div.ms-rteElement-divRight, div.ms-rteElement-divRight50 {
+    border: 1px solid #ddd;
+
+    h2 {
+    border-bottom: 1px solid #ddd;
+
+}
+}
+}
+
+
+
+
+  .sectionTwo .promoListWebpart {
+     ul{ 
+         
+         
+         
+         li
+      {
+        a {
+             @include promoListWebpartColors(darken($sectionTwo-background-color,12%), #fff, #fff, transparent, #fff);
+    
+     }
+
+  &.catergory a .info{
+         background:transparent; 
+         &:hover{
+             background:darken($sectionTwo-background-color,12%);
+             border-color:darken($sectionTwo-background-color,12%);
+         } }
+
+
+      }
+
+       @include  promoListWebpartDarkerLighter(darken($sectionTwo-background-color,12%));
+     }
+
+ }
+ 
+ 
+ 
+ 
+ .sectionThree .promoListWebpart {
+     ul{ 
+         
+         
+         
+         li
+      {
+        a {
+             @include promoListWebpartColors(darken($sectionThree-background-color,12%), #fff, #fff, transparent, #fff);
+    
+     }
+     
+  &.catergory a .info{
+         background:transparent; 
+         &:hover{
+             background:darken($sectionThree-background-color,12%);
+             border-color:darken($sectionThree-background-color,12%);
+         } }
+      }
+
+       @include  promoListWebpartDarkerLighter(darken($sectionThree-background-color,12%));
+     }
+
+ }
+
+  .sectionFour .promoListWebpart {
+     ul{ 
+         
+         
+         
+         li
+      {
+        a {
+             @include promoListWebpartColors(darken($sectionFour-background-color,12%), #fff, #fff, transparent, #fff);
+    
+     }
+     
+  &.catergory a .info{
+         background:transparent; 
+         &:hover{
+             background:darken($sectionFour-background-color,12%);
+             border-color:darken($sectionFour-background-color,12%);
+         } }
+      }
+
+       @include  promoListWebpartDarkerLighter(darken($sectionFour-background-color,8%));
+     }
+
+ }
+
+  .sectionFive .promoListWebpart {
+     ul{ 
+         
+         
+         
+         li
+      {
+        a {
+             @include promoListWebpartColors(darken($sectionFive-background-color,20%), #fff, #fff, transparent, #fff);
+    
+     }
+
+     
+  &.catergory a .info{
+         background:transparent; 
+         &:hover{
+             background:darken($sectionFive-background-color,12%);
+             border-color:darken($sectionFive-background-color,12%);
+         } }
+      }
+
+       @include  promoListWebpartDarkerLighter(darken($sectionFive-background-color,20%));
+     }
+
+ }
+
+.mapToggle a.active, .mapToggle a.active:hover, .mapToggle a.active:focus {
+    background:lighten($main-nav-background, 60%);
+    color:#333;
+}

@@ -13,7 +13,7 @@
 
 $base-background-color:#000;
 $base-font-size:18px ;
-$base-font-color:#333 ;
+$base-font-color:#323232 ;
 $base-link-color:#59abe1 ;
 //$base-container-width:1500px ;
 $btn-background-color:#59abe1;
@@ -30,7 +30,7 @@ $base-highlight-color:#A93723;
 //$search-link:#333 ;
 
 // mainNav.scss
-$main-nav-background:rgba(#52a4ce,0.3);
+$main-nav-background:transparent;
 //$main-nav-link:#fff ;
 
 //footer.scss
@@ -62,6 +62,8 @@ $main-nav-background:rgba(#52a4ce,0.3);
 //$promo-group-li-background:#EDF2F5 ;
 //$promo-group-link-color:#216486 ;
 
+$accordion-color:#A93723;
+
 
 //promolist webpart
 //$link-font-color:#fff;
@@ -72,17 +74,17 @@ $span-arrow-base:darken($span-info-color, 15%);
 $span-third-info-base:#fff;
 //$third-info-font-color:#333;
 //$arrow-color:#fff;
-//$contentFontColor:#333;
-//$content-arrow-color:#133E8D;
+$contentFontColor:#fff;
+$content-arrow-color:#fff;
 //$content-border-color:#ddd;
 
 // section backgrounds
 $sectionHeader-background-color:rgba(255,255,255,0.2);
 $sectionOne-background-color:#fff;
-$sectionTwo-background-color:  rgba(0,0,0,0.5);
-$sectionThree-background-color:#333;
-$sectionFour-background-color:#000;
-$sectionFive-background-color:#333;
+$sectionTwo-background-color:  rgba(255,255,255,0.2);
+$sectionThree-background-color:#000;
+$sectionFour-background-color:#333;
+$sectionFive-background-color:#000;
 
 //iconlinks
 //$iconLinkIconColor:#FFC82E;
@@ -91,7 +93,7 @@ $sectionFive-background-color:#333;
 //$heroFontBackground:rgba(0, 0, 0, 0.5); 
 //$heroFontcolor:#fff; 
 
-$eventsfilter-hightlight-color:#A93723;
+$eventsfilter-hightlight-color:#333;
 
 @import 'mixins';
 @import 'variables';
@@ -115,6 +117,8 @@ $eventsfilter-hightlight-color:#A93723;
 @import 'sharepointOverides';
 @import 'iconLinks';
 @import 'heroBanner';
+@import 'pageNavigation';
+@import '../sass/eventItem';
 
 
 a:visited {
@@ -174,13 +178,12 @@ body,.ms-backgroundImage {
 
  .main-nav {
 
-    margin-top:-20px;
+    margin:-26px 0;
     padding:10px 0 0px 0;
-    text-align: center;
-
-	li{
-		margin-right:5px;
-	}	
+  
+    li{
+        margin-right:2px;
+    }
 
     a{
         background:rgba(#52a4ce,0.8);
@@ -217,41 +220,6 @@ footer.main   {
 
 
 
-.promoListWebpart ul li.catergory a {
-
-background-size:540px !important; 
-background-position:top center!important;   
-
-
-
-img{
-    text-align: center;
-}
-
-.info {
-    background: rgba(0,0,0,0);
-    width: 100%;
-    opacity: 1;
-    border-top: 1px solid #888;
-    font-size: 18px;
-    text-transform: uppercase;   
-    opacity: 1;
-    filter: alpha(opacity=1);
-
-
-    .arrow{
-        background:transparent;
-
-
-        &:after{
-            display:none;
-        }
-    }
-}
-
-}
-
-
 @media only screen and (max-width:768px){
     ul.menu li a.main-menu {
     background: rgba(82,164,206,1)!important;
@@ -261,6 +229,24 @@ img{
 .main-nav {
     background: rgba(82,164,206,1);
     margin-top:0px;
+    
 }
 
 }
+
+@media only screen and (min-width:769px){
+.main-nav ul li {
+    display: inline;
+}
+}
+
+
+
+
+
+
+.mapToggle a.active, .mapToggle a.active:hover, .mapToggle a.active:focus {
+    background:lighten(#3488B6, 35%);
+    color:#333;
+}
+

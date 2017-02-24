@@ -1,0 +1,115 @@
+
+$base-highlight-color:#333;
+
+.eventItem {
+    float: left;
+    padding: 0 !important;
+    background: #F5F7F8;
+    margin: 1%;
+    width: 31.33333333333%;
+    list-style: none;
+
+    .btn{
+        display:block;
+        margin:0 20px 20px;
+    }
+
+  a {
+    text-decoration: none;
+
+    &:hover .details,
+    &:focus .details {
+    text-decoration: none;
+    background: #ECF0F1;
+}
+}
+
+img {
+    width: 100%;
+}
+
+h3 {
+    margin: 0 0 10px;
+}
+
+.details {
+    padding: 20px
+}
+
+.additionaldates {
+    margin: 0;
+    font-size: inherit;
+    color: #666;
+}
+
+p.eventDate,
+p.eventLocation {
+    font-size: 0.98em;
+    line-height: 1.2em;  
+    padding:10px 0;
+}
+
+p.eventLocation {
+    margin: 0 0 5px;
+    font-weight: bold;
+    color: #34444B;
+
+    .glyphicon {
+    color: inherit;
+    margin: 0 5px 0 0;
+}
+}
+
+ p.eventDate {
+    color: $base-highlight-color;
+    margin: 0 0 5px;
+}
+
+p.eventSummary {
+    line-height: 1.3em;
+    margin: 0 0 5px;
+}
+
+.eventImage {
+    max-width: 50%;
+    float: right;
+    margin: 0 0 30px 30px;
+}
+
+@media (max-width: 767px) {
+
+       margin: 2%;
+        width: 46%;
+
+}
+
+
+@media (max-width: 600px) {
+
+        margin: 0 0 5%;
+        width: 100%;
+    }
+
+    @media (max-width: 500px) {
+    .eventImage {
+        max-width: 100%;
+        float: none;
+        margin: 0 0 20px 0;
+    }
+}
+
+
+}
+
+
+
+.selectedFilters a:visited{
+    color:$base-highlight-color;
+    &:hover{
+        color:#fff;
+    }
+} 
+
+.iconLinks h2 {
+    text-align:center;
+}

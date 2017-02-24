@@ -100,37 +100,48 @@
     global.LCC = LCC;
 
 })(window, jQuery);
-
-
-(function (global, $) {
-    "use strict";
-    var LCC = global.LCC || {};
-	    LCC.SearchFilter = LCC.SearchFilter || {};
-
+(function ($) {
+    
     $(document).ready(function () {
-        LCC.SearchFilter.addClickEvent();
+        $("input[data-type='datepicker-start']").datepicker({
+            defaultDate: null,
+            dateFormat: "dd/mm/yy",
+            changeMonth: true,
+            minDate: 0,
+            onSelect: function(selected) {
+                $("input[data-type='datepicker-end']").datepicker("option", "minDate", selected)
+            }
+        });
+        $("input[data-type='datepicker-end']").datepicker({
+            defaultDate: null,
+            dateFormat: "dd/mm/yy",
+            changeMonth: true,
+            minDate: 0,
+            onSelect: function (selected) {
+                $("input[data-type='datepicker-start']").datepicker("option", "maxDate", selected)
+            }
+        });        
+        $('.activitySearchHomeHeader a').click(function () {
+            $('.activitySearchHomeContent').slideToggle("slow");
+            $('.activitySearchHomeHeader').toggleClass("active");
+            
+        });
+            
+        $('.rbEvents').click(function () {
+            $(".searchEvents").css('display', 'block');
+            $(".searchVenues").css('display', 'none');
+            $('.rbEvents input:radio').attr('checked', true);
+            $('.rbVenues input:radio').attr('checked', false);
+
+        });
+        $('.rbVenues').click(function () {
+            $(".searchEvents").css('display', 'none');
+            $(".searchVenues").css('display', 'block');
+            $('.rbEvents input:radio').attr('checked', false);
+            $('.rbVenues input:radio').attr('checked', true);
+        });
     });
-
-    LCC.SearchFilter.addClickEvent = function () {
-                 $('#filterhide a').click(function (event) {
-                event.preventDefault();
-                $('.eventsFilter.col-md-3').toggleClass("active");
-            });
-            $('#filterCloseButton a').click(function (event) {
-                event.preventDefault();
-                $('.eventsFilter.col-md-3.active').removeClass("active");
-            });
-            $('#closeIcon').click(function (event) {
-                event.preventDefault();
-                $('.eventsFilter.col-md-3.active').removeClass("active");
-            });
-    };
-
-    global.LCC = LCC;
-
-})(window, jQuery);
+})(jQuery);
 
 
-
- 
 
