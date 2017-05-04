@@ -1,6 +1,4 @@
-
 $base-highlight-color:#333;
-
 .eventItem {
     float: left;
     padding: 0 !important;
@@ -8,108 +6,169 @@ $base-highlight-color:#333;
     margin: 1%;
     width: 31.33333333333%;
     list-style: none;
-
-    .btn{
-        display:block;
-        margin:0 20px 20px;
+    .btn {
+        display: block;
+        margin:20px;
     }
-
-  a {
-    text-decoration: none;
-
-    &:hover .details,
-    &:focus .details {
-    text-decoration: none;
-    background: #ECF0F1;
-}
-}
-
-img {
-    width: 100%;
-}
-
-h3 {
-    margin: 0 0 10px;
-}
-
-.details {
-    padding: 20px
-}
-
-.additionaldates {
-    margin: 0;
-    font-size: inherit;
-    color: #666;
-}
-
-p.eventDate,
-p.eventLocation {
-    font-size: 0.98em;
-    line-height: 1.2em;  
-    padding:10px 0;
-}
-
-p.eventLocation {
-    margin: 0 0 5px;
-    font-weight: bold;
-    color: #34444B;
-
-    .glyphicon {
-    color: inherit;
-    margin: 0 5px 0 0;
-}
-}
-
- p.eventDate {
-    color: $base-highlight-color;
-    margin: 0 0 5px;
-}
-
-p.eventSummary {
-    line-height: 1.3em;
-    margin: 0 0 5px;
-}
-
-.eventImage {
-    max-width: 50%;
-    float: right;
-    margin: 0 0 30px 30px;
-}
-
-@media (max-width: 767px) {
-
-       margin: 2%;
+    a {
+        text-decoration: none;
+        &:hover .details,
+        &:focus .details {
+            text-decoration: none;
+            background: #ECF0F1;
+        }
+    }
+    img {
+        width: 100%;
+    }
+    h3 {
+        margin: 0 0 10px;
+    }
+    .details {
+        padding: 20px;
+        border-bottom:1px solid #ECF0F1;
+    }
+    .additionaldates {
+        margin: 0;
+        font-size: inherit;
+        color: #666;
+    }
+    p.eventDate,
+    p.eventLocation {
+        font-size: 0.98em;
+        line-height: 1.2em;
+        padding: 10px 0;
+    }
+    p.eventLocation {
+        margin: 0 0 5px;
+        font-weight: bold;
+        color: #34444B;
+        .glyphicon {
+            color: inherit;
+            margin: 0 5px 0 0;
+        }
+    }
+    p.eventDate {
+        color: $base-highlight-color;
+        margin: 0 0 5px;
+    }
+    p.eventSummary {
+        line-height: 1.3em;
+        margin: 0 0 5px;
+    }
+    .eventImage {
+        max-width: 50%;
+        float: right;
+        margin: 0 0 30px 30px;
+    }
+    @media (max-width: 767px) {
+        margin: 2%;
         width: 46%;
-
-}
-
-
-@media (max-width: 600px) {
-
+    }
+    @media (max-width: 600px) {
         margin: 0 0 5%;
         width: 100%;
     }
-
     @media (max-width: 500px) {
-    .eventImage {
-        max-width: 100%;
-        float: none;
-        margin: 0 0 20px 0;
+        .eventImage {
+            max-width: 100%;
+            float: none;
+            margin: 0 0 20px 0;
+        }
     }
 }
 
-
-}
-
-
-
-.selectedFilters a:visited{
-    color:$base-highlight-color;
-    &:hover{
-        color:#fff;
+.selectedFilters a:visited {
+    color: $base-highlight-color;
+    &:hover {
+        color: #fff;
     }
-} 
+}
 
 .iconLinks h2 {
-    text-align:center;
+    text-align: center;
+}
+
+.dateTickets {
+    background: #f6f6f6;
+    margin: 0 0 50px 0;
+    display: block;
+    clear: both;
+    padding: 20px
+}
+
+.dateTickets img {
+    float: right;
+    padding: 10px;
+    border: 1px solid #D5DFEA;
+    margin: 20px 0 0 0;
+    background: #fff;
+    margin-top: 20px;
+    max-width: 100%;
+    @media (max-width: 767px) {
+        width: 100%;
+    }
+}
+
+.dateTickets .dateBox {
+    border: NONE;
+    background: transparent;
+    margin: 20px 0;
+}
+
+.dateTickets .dateBox li {
+    background: #fff;
+    width: 48%;
+    margin: 3% 1% 0 1%;
+}
+
+.dateTickets .dateBox li h2 {
+    font-weight: 300;
+    font-size: 1.5em;
+}
+
+.dateTickets .dateBox p {
+    color: #333;
+    margin: 0;
+    font-size: 13px!important
+}
+
+.dateTickets .dateBox a {
+    font-size: 1em!important;
+    font-weight: 400!important;
+    margin-top: 3%
+}
+
+.dateTickets .dateBox,
+.dateTickets .contentBoxBorder {
+    margin: 0!important
+}
+
+.dateTickets .dateBox h2,
+.dateTickets .contentBoxBorder h2 {
+    background-color: transparent!important;
+    font-size: 1.5em;
+    padding: 15px;
+}
+
+.dateTickets .dateBox p,
+.dateTickets .contentBoxBorder p {
+    margin-bottom: 15px
+}
+
+.dateTickets .dateBox p span,
+.dateTickets .contentBoxBorder p span {
+    font-weight: 300
+}
+
+.dateTickets .contentBoxBorder {
+    display: block;
+    border: 0;
+    background: transparent!important;
+    border: 0!important
+}
+
+.dateTickets .contentBoxBorder .btn {
+    white-space: normal;
+    clear: left
 }
