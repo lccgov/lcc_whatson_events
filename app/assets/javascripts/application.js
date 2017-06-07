@@ -1,3 +1,6 @@
+//= require google-analytics
+
+
 (function (global, $) {
   'use strict'
 
