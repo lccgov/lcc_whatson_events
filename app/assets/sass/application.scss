@@ -325,3 +325,12 @@ body{
 
 
 
+
+//back to top (focus fix)
+.cd-top:focus{
+    background:$focus-color url("images/cd-top-arrow.svg") no-repeat center 50% !important;
+    opacity:1;
+} 
+
+
+

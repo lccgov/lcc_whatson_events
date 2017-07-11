@@ -97,6 +97,8 @@ $eventsfilter-hightlight-color:#89c23f;
 //@import 'heroBanner';
 @import 'pageNavigation';
 @import '../sass/eventItem';
+@import 'accessibility';
+@import 'browser-alert';
 
 
 
@@ -136,7 +138,7 @@ p {
  .logo{
         height:192px;
         width:100%;
-        background:url(../images/logo.svg) center top no-repeat;
+        background:url(../images/logo.png) center top no-repeat;
         margin:20px 0;
 
         @media (max-width: 767px){

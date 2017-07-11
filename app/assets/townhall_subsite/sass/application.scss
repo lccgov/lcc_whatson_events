@@ -119,6 +119,9 @@ $eventsfilter-hightlight-color:#333;
 @import 'heroBanner';
 @import 'pageNavigation';
 @import '../sass/eventItem';
+@import 'accessibility';
+@import 'browser-alert';
+
 
 
 a:visited {
@@ -142,10 +145,12 @@ body,.ms-backgroundImage {
 
         
  .logo{
-        height:192px;
+        height:150px;
         width:100%;
-        background:url(../images/logo.png) center top no-repeat;
-        margin:20px 0;
+        background-image:url(../images/FrontPageLogo.png);
+        background-position: center top;
+        background-repeat: no-repeat;
+        margin:40px 0 20px 0;
 
         @media (max-width: 767px){
             width:100%;
@@ -164,16 +169,6 @@ body,.ms-backgroundImage {
     }
 }
 
-.sectionOne{
-        div.ms-rteElement-divFull, div.ms-rteElement-divRight, div.ms-rteElement-divRight50 {
-    border: 1px solid #ddd;
-
-    h2 {
-    border-bottom: 1px solid #ddd;
-
-}
-}
-}
 // Main menu overides
 
  .main-nav {
@@ -249,4 +244,23 @@ footer.main   {
     background:lighten(#3488B6, 35%);
     color:#333;
 }
+
+
+
+div.ms-rteElement-divFull.highlight, div.ms-rteElement-divLeft.highlight, div.ms-rteElement-divRight.highlight, div.ms-rteElement-divThird.highlight {
+    border-color:$accordion-color;
+    background:$accordion-color;
+    color:#fff;
+
+    h2, p{
+        margin-top:0px;
+        color:#fff;
+    }
+
+    a{
+        color:#fff;
+        text-decoration:underline;
+    }
+    }
+
 

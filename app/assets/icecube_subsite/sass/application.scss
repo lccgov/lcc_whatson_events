@@ -121,6 +121,8 @@ $eventsfilter-hightlight-color:#333;
 @import 'heroBanner';
 @import 'pageNavigation';
 @import '../sass/eventItem';
+@import 'accessibility';
+@import 'browser-alert';
 
 
 a:visited {
