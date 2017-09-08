@@ -64,7 +64,7 @@ $main-nav-background:transparent;
 //$promo-group-li-background:#EDF2F5 ;
 //$promo-group-link-color:#216486 ;
 
-$accordion-color:#A93723;
+$accordion-color:#5b824c;
 
 
 //promolist webpart
@@ -252,6 +252,10 @@ body,.ms-backgroundImage {
          padding:20px 10px;
          text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.4);
          font-family:$font-secondary;
+
+         @media (max-width:767px){
+             text-shadow:none;
+         }
 
     }
 
@@ -1266,6 +1270,12 @@ article img{
 
 //bootsrap accordion
 
+
+ul.accordion li a.header {
+   color:#5b824c;
+   text-decoration:none;
+   font-weight:400;
+}
 
 
 .panel-group, .concertina {
