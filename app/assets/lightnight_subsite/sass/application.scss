@@ -116,6 +116,12 @@ img{
 
 a{
     color:$base-link-color;
+    &:hover{
+        color:$base-link-color;
+    }
+    &:visited{
+      color:lighten($base-link-color,10%)
+    }
 }
 
 p {
@@ -129,7 +135,7 @@ p {
 // logo overides to accomodate diiferent logo aspect ratios
 .sectionHeader{
     padding:0px;
-    background: #016B61 url(../images/headerbackground.jpg) no-repeat center bottom;
+    background: #000c0c url(../images/headerbackground.jpg) no-repeat center bottom;
     min-height:275px;
 
  
@@ -224,7 +230,7 @@ p {
 
 .sectionFive{
     color:#fff;
-   background:#318E7C url(../images/sectionFiveBack.jpg) no-repeat 50% bottom;
+   background:#866dae url(../images/sectionFiveBack.jpg) no-repeat 50% bottom;
     padding-bottom: 150px;
 
 &:after {
@@ -237,9 +243,15 @@ footer.main {
     background: #000 url("../images/footerLogos.png") no-repeat scroll 50% 40px;
     padding-top:220px;
 
- @media only screen and (max-width:800px){
-    background:#000;
-    padding-top:0px;
+ @media only screen and (max-width:900px){
+  background: #000 url("../images/footerLogosResponsiveM.png") no-repeat scroll 50% 40px;   
+  padding-top:400px;
+ }
+
+
+ @media only screen and (max-width:600px){
+    background: #000 url("../images/footerLogosResponsive.png") no-repeat scroll 50% 40px;
+    padding-top:600px;
  }
 
     .footer ul li a{
@@ -743,4 +755,8 @@ div.ms-rteElement-divRight.highlight h3 {
     a{
         color:#006da5;
     }
+}
+
+ .btn.btn-primary, .btn {
+    white-space: inherit;
 }
