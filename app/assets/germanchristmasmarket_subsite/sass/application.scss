@@ -1589,6 +1589,20 @@ box-shadow: 3px 3px 5px 0px rgba(51,51,51,0.4);
     margin-top:0 !important;
 }
 
+
+ul.accordion li a.header,  ul.accordion li a.header:visited {
+    color: #5b824c;
+  
+
+    &:after{
+        color:#5b824c;
+    }
+
+
+}
+
+
+
 @media (max-width: 600px){
     
     .no-padding-mobile {
@@ -1599,4 +1613,76 @@ box-shadow: 3px 3px 5px 0px rgba(51,51,51,0.4);
         margin-top:20px !important;
     }
     
+}
+
+
+.sectionOne .ms-srch-result #Paging li {
+    display: inline;
+    margin: 0 3px;
+}
+.sectionOne .ms-srch-result #PagingLink a {
+    margin: 0px;
+    padding: 5px 15px;
+    position: relative;
+    top: 1px;
+    color: #fff;
+    background-color: $base-link-color;
+    display: inline-block;
+}
+.sectionOne .ms-srch-result #PagingSelf a {
+    margin: 0px;
+    padding: 5px 15px;
+    position: relative;
+    top: 1px;
+    color: #fff;
+    background-color:#333;
+    display: inline-block;
+}
+.sectionOne .ms-srch-result #Paging a:hover {
+    color: #fff;
+    background-color: #333;
+}
+.sectionOne li#PagingImageLink a {
+    padding: 16px;
+    border-radius: 100%;
+}
+.sectionOne .col-md-8 .ms-promlink-button-image {
+    margin: -7px 0 20px -7px;
+}
+.sectionOne #PageLinkPrev .ms-promlink-button-image::before {
+    font-family: FontAwesome;
+    content: "\f060";
+    position: relative;
+    top: -5px;
+    left: -1px;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+.sectionOne #PageLinkNext .ms-promlink-button-image::before {
+    font-family: FontAwesome;
+    content: "\f061";
+    position: relative;
+    top: -5px;
+    left: -1px;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+.sectionOne #PageLinkPrev img.ms-srch-pagingPrev, .sectionOne #PageLinkNext img.ms-srch-pagingNext {
+    display: none;
+}
+.ms-srch-sb-borderFocused {
+    border: none!important;
+    width: 100%
+}
+.col-md-8 .ms-srch-sbLarge-fullWidth {
+    width: 80%;
+}
+.col-md-8 #SearchBox {
+    padding: 8px 10px 3px 10px;
+    width: 100%;
+    max-width: 900px;}
+
+
+        #nav-search {
+    display: none;
 }

@@ -121,6 +121,7 @@ $eventsfilter-hightlight-color:#333;
 @import '../sass/eventItem';
 @import 'accessibility';
 @import 'browser-alert';
+@import 'typography-lcc';
 
 
 
@@ -281,3 +282,6 @@ footer.main   {
     }
 }
 
+    #nav-search {
+    display: none;
+}

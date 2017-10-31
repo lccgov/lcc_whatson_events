@@ -128,6 +128,7 @@ $highlighted-alt-font-color:#333;
 @import 'accessibility';
 @import 'browser-alert';
 @import 'contentAssets';
+@import 'typography-lcc';
 
 
 body,.ms-backgroundImage {
@@ -328,4 +329,8 @@ a:visited {
 .mapToggle a.active, .mapToggle a.active:hover, .mapToggle a.active:focus {
     background:lighten($main-nav-background, 60%);
     color:#333;
+}
+
+    #nav-search {
+    display: none;
 }
