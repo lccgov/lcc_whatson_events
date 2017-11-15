@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,700,800,400,600');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,700,800,400,600');
 // available variables to change the brand colours as required
-// masterhead.scss
+    
 
 //$head-background: #ffffff;
 
@@ -96,6 +96,7 @@ $sectionFive-background-color:rgba(0,0,0,0.5);
 //$heroFontcolor:#fff; 
 
 $eventsfilter-hightlight-color:#333;
+$highlight:#0070ad;
 
 @import 'mixins';
 @import 'variables';
@@ -147,12 +148,12 @@ hr.ms-rteElement-spacer, hr.spacerTop, hr.spacerBottom {
 background:#2C3E50 url(../images/slide.svg) no-repeat right bottom -1px ; 
         
  .logo{
-        width: 150px;
+        width: 300px;
         margin: 35px 0;
         background-size: 100%;
         height: 150px;
         float: none;
-        background:url(../images/logo.svg) left center no-repeat;
+        background:url(../images/icecube-logo.svg) left center no-repeat;
         background-size:100%;
 
         @media (max-width: 767px){
@@ -162,11 +163,11 @@ background:#2C3E50 url(../images/slide.svg) no-repeat right bottom -1px ;
       }
 
       .header-right:after {
-    content: "FRI 27JAN - SUN 19FEB";
+    content: "FRI 2FEB - SUN 25FEB";
     letter-spacing: 8px;
     display: block;
     float: right;
-    background:orange;
+    background:$highlight;
     padding:20px 50px;
     color:#fff;
     font-weight:400;
@@ -221,10 +222,11 @@ background:#2C3E50 url(../images/slide.svg) no-repeat right bottom -1px ;
          font-family:$font-primary;
          font-weight:600;
          text-transform:uppercase;
+         text-decoration: none;
 
       &.selected  {
-            background:transparent !important;
-            color:orange;
+    
+            color:$highlight;
         }
 
     }
@@ -250,6 +252,14 @@ footer.main   {
 
     .footerGlobal{
         background:darken(#1A4C6D, 5%);
+    }
+
+    nav ul a{
+        text-decoration:none;
+
+        &:hover{
+            text-decoration:underline;
+        }
     }
 }
 
@@ -286,8 +296,9 @@ footer.main   {
 
 
 .openingHours{
-    background:#f6f6f6;
+    background:#fff;
     text-transform: uppercase;
+    border-bottom:1px solid #bbcada;
 
     
     ul{
@@ -307,7 +318,7 @@ footer.main   {
           
 
             &:first-of-type{
-               background:orange;
+               background:$highlight;
 
                @media only screen and (max-width:769px){
                    width:100%;
@@ -431,6 +442,77 @@ footer.main   {
     color: darken($base-link-color, 20%);
 }
 
+//typography
+
+h1{
+    font-size:40px;
+    margin:30px 0 10px;
+}
+
+h2{
+    font-size:28px;
+}
+
+h3{
+    font-size:22px;
+    font-weight:200;
+}
+
+
+ .sectionFive h2{
+    font-size:40px;
+}
+
+
+p, article ul{
+
+    font-size:16px;
+    font-weight:normal;
+    margin:0 0 20px;
+    line-height: 1.8;
+}
+
+.lead{
+    font-size: 26px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    line-height: 1.5em;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 600;
+    font-family:$font-primary;
+}
+
+h1, h2, h3, h4, h5, ol, p, ul {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+@media (max-width:600px){
+    
+    .lead{
+        font-size:18px !important;
+    }
+    
+    p, article ul, .panel-group .panel{
+        font-size:14px !important;
+    }
+    
+    h1{
+        font-size:32px;
+        margin:0 0 20px;
+    }
+
+    h2{
+        font-size:26px;
+    }
+
+    .sectionFive h2, .sectionFour h2, .sectionFive h2{
+        font-size:32px !important;
+    }
+    
+}
 
 
 
@@ -626,11 +708,11 @@ footer.main   {
 }
 
 .connect li a:hover{
-    color:orange;
+    color:$highlight;
 }
 
 .connect li a:hover i{
-    background:orange;
+    background:$highlight;
 }
 
 @media (min-width: 990px) and (max-width: 1200px){
@@ -666,7 +748,7 @@ footer.main   {
     white-space: normal;
     font-weight:normal;
     font-size:20px;
-  
+    text-decoration: none;
     letter-spacing:0;
     border:none;
 
@@ -812,7 +894,7 @@ div.highlight.red{
 
 .highlight h2 i {
     margin: 0 10px 0 0;
-    color: orange;
+    color: $highlight;
 }
 
 .highlight.black{
@@ -854,7 +936,7 @@ hr.brand {
         margin:-30px auto 0 auto;
        border:3px solid #fff;
        line-height:7em;
-       color:orange;
+       color:$highlight;
 
         
     }
@@ -964,7 +1046,7 @@ article img{
 
 .travel-info h2 i{
     margin:0 10px 0 0;
-    color:orange;
+    color:$highlight;
 }
 
 .btn-outline{
@@ -1033,8 +1115,7 @@ article img{
 .panel-group .panel {
     border-radius: 0;
     box-shadow:none;
-    margin:0px;
-    padding:0px;
+
     font-size:16px;
     font-weight:normal;
     line-height:1.6;
@@ -1059,7 +1140,6 @@ article img{
   
     font-size:20px;
     font-weight:normal;
-    margin-bottom:0px;
 }
 
 .panel-green>.panel-heading h3 a, .concertina .expandContent h3.active a{
@@ -1204,14 +1284,8 @@ ul.accordion
     
 }
 
-/*accessibility*/
 
-a:focus, input[type=submit]:focus{
-    background:#FFBF47 !important;
-    color:#333 !important;
-    text-decoration:none;
-    text-shadow:none;
-}
+
 
 .external:after{
     content: '\f08e';
@@ -1233,30 +1307,6 @@ a:focus, input[type=submit]:focus{
     }
 }
 
-//cookies
-
-#siteStatement {
-    background: #251611;
-    color: #fff;
-    
-    p{
-        
-        a{
-            color: #fff;
-            text-decoration: underline;
-            
-        }
-    }
-    
-    a.submit{
-        background: #5B824C;
-        display: inline-block;
-        color:#fff;
-        padding:15px;
-    }
-        
-}
-
 
 //highlight promo
 
@@ -1268,7 +1318,7 @@ a:focus, input[type=submit]:focus{
     position:relative;
     
     .promo-alert{
-            background:orange;
+            background:$highlight;
             padding:20px;
             color:#fff;
             position:absolute;
@@ -1387,7 +1437,7 @@ box-shadow: 3px 3px 5px 0px rgba(51,51,51,0.4);
 
     h3{
         margin:0;
-        background: orange;
+        background: $highlight;
         color:#fff;
         padding:20px 15px;
     }
@@ -1407,7 +1457,7 @@ box-shadow: 3px 3px 5px 0px rgba(51,51,51,0.4);
 
                    &.active, &.active:hover {
                     color: #fff;
-                    background:orange !important;
+                    background:$highlight !important;
 
 
 
@@ -1431,7 +1481,7 @@ box-shadow: 3px 3px 5px 0px rgba(51,51,51,0.4);
                 }
 
                 &.active, &.active:hover {
-                    color: orange;
+                    color: $highlight;
                     background:transparent !important;
                     cursor:default;
                 }
@@ -1445,78 +1495,8 @@ box-shadow: 3px 3px 5px 0px rgba(51,51,51,0.4);
 
 .ms-core-listMenu-horizontalBox .ms-core-listMenu-selected, .ms-core-listMenu-horizontalBox .ms-core-listMenu-selected:link, .ms-core-listMenu-horizontalBox .ms-core-listMenu-selected:visited, .ms-core-listMenu-horizontalBox a.ms-core-listMenu-item.ms-core-listMenu-selected:hover, .ms-core-listMenu-horizontalBox a.ms-core-listMenu-item:hover, .ms-tv-selected:link, a.ms-tv-header:hover, a.ms-tv-item:hover {
     background-color: #f2f2f2;
-    color: orange;
+    color: $highlight;
 }
 
 
 
-.sectionOne .ms-srch-result #Paging li {
-    display: inline;
-    margin: 0 3px;
-}
-.sectionOne .ms-srch-result #PagingLink a {
-    margin: 0px;
-    padding: 5px 15px;
-    position: relative;
-    top: 1px;
-    color: #fff;
-    background-color: $base-link-color;
-    display: inline-block;
-}
-.sectionOne .ms-srch-result #PagingSelf a {
-    margin: 0px;
-    padding: 5px 15px;
-    position: relative;
-    top: 1px;
-    color: #fff;
-    background-color:#333;
-    display: inline-block;
-}
-.sectionOne .ms-srch-result #Paging a:hover {
-    color: #fff;
-    background-color: #333;
-}
-.sectionOne li#PagingImageLink a {
-    padding: 16px;
-    border-radius: 100%;
-}
-.sectionOne .col-md-8 .ms-promlink-button-image {
-    margin: -7px 0 20px -7px;
-}
-.sectionOne #PageLinkPrev .ms-promlink-button-image::before {
-    font-family: FontAwesome;
-    content: "\f060";
-    position: relative;
-    top: -5px;
-    left: -1px;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-}
-.sectionOne #PageLinkNext .ms-promlink-button-image::before {
-    font-family: FontAwesome;
-    content: "\f061";
-    position: relative;
-    top: -5px;
-    left: -1px;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-}
-.sectionOne #PageLinkPrev img.ms-srch-pagingPrev, .sectionOne #PageLinkNext img.ms-srch-pagingNext {
-    display: none;
-}
-.ms-srch-sb-borderFocused {
-    border: none!important;
-    width: 100%
-}
-.col-md-8 .ms-srch-sbLarge-fullWidth {
-    width: 80%;
-}
-.col-md-8 #SearchBox {
-    padding: 8px 10px 3px 10px;
-    width: 100%;
-    max-width: 900px;}
-
-
-        #nav-search {
-    display: none;
-}
