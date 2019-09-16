@@ -1,0 +1,13 @@
+a {
+    &:focus { background-color: $yellow!important; color: #212224!important; text-decoration: none; outline: 0; }
+    &.btn { border-color:$orange; text-align: center; border-radius: 0;
+        &-primary { background:$orange; border:0;
+            &:before,&:after {display:none;}
+            &:hover { background:$blue; }
+        }
+    }
+}
+
+.link, a {
+    color: $purple-three;
+}

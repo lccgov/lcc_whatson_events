@@ -1,0 +1,61 @@
+footer .footerGlobal>.container-fluid { max-width: 100%; padding-top: 0;
+    .dfwp-item .item { padding-top: 0; }
+}
+
+.ln-footer-social-media { background: $purple-light; border-top: 100px solid $white;
+    ul.iconLinks { padding-left: 0; margin-left: -7px; margin-right: -7px; }
+}
+
+footer.main { background:$purple-light;
+    .container-fluid {padding:0 0 25px;
+        .logo-footer {
+            p {font-size:21px;}
+            span {background:url('/lightnight/PublishingImages/lcc-logo-white-01.svg') center center/100% 100% no-repeat;}
+        }
+        .text-right {
+            .socialBookmarks {
+                ul li {
+                    &:first-of-type {
+                        @media only screen and (max-width: 400px) {width: 100%; text-align: left;}
+                    } 
+                    a {
+                        &.email, &.facebook, &.flickr, &.instagram, &.twitter, &.youtube {
+                            &:after {font-size: 25px; width: 42px; height: 42px; display: block; text-align: center; padding-top: 3px; border: 1px solid #fff; color: #fff;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .secondaryFooter {
+        .container-fluid {padding:25px 0;}
+    }
+    .ln-footer-social-media {
+        .container-fluid { padding-bottom: 0; padding-top: 40px;
+            @media only screen and (min-width: 768px) {padding-top:60px;}
+        }
+    }
+    .dfwp-column {padding-left:0; padding-right:0;
+        .item {padding-left:0; padding-right:0;}
+    }
+    .footerGlobal {background-color:$blue-dark;}
+}
+
+.ln-footer-social-media {
+    &:before { content: ""; display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: -40px; width: 0; height: 0; border-style: solid; border-width: 0 70px 40px 70px; border-color: transparent transparent $purple-light transparent; }
+    img { width: 100%; }
+}
+
+.logo-footer span { margin: 40px 0 15px; width: 220px; height: 66px; }
+
+.image-grid { display: flex; align-items: flex-start; flex-wrap: wrap; margin-left: -7px; margin-right: -7px;
+    a { width: 100%; padding: 7px;
+        @media only screen and (min-width: 768px) {width:50%;}
+        @media only screen and (min-width: 1024px) {width:25%;}
+        img { width: 100%; }
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .small-pad-bottom { padding-bottom: 30px; }
+}

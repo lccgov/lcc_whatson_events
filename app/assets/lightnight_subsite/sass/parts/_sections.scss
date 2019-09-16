@@ -1,0 +1,46 @@
+.section {
+    &One {background:$white; color:$blackBody;
+        h1 {color:$blackBody;}
+    }
+    &Two { background:$white; color: $blackBody; }
+}
+
+.promoListWebpart {
+    ul li.contentLink {
+        h2 { color:$black;
+            text-align: left;
+            margin-top: 0;
+        }
+        a {
+            span {
+                &.info {background:$black; color:$white; border-top:0;}
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:600px) {
+    .promoListWebpart .contentLink .link,
+    .promoListWebpart .contentLink a {
+        position: relative;
+        height: auto
+    }
+    .promoListWebpart .contentLink .link .info,
+    .promoListWebpart .contentLink a .info {
+        position: relative
+    }
+}
+
+.panel { background:$greyBg; }
+
+blockquote { border-left: 15px solid $blue-block; font-weight:300; padding:10px 20px; margin:0 0 20px;
+    &:before {display:none;}
+    p { font-size: 24px !important; padding:0;
+        @media (max-width: 641px) {font-size: 19px !important;}
+    }
+    span.open-quote:after { color: #dcdee1; }
+
+    footer { color: #fff;
+        @media (max-width: 641px) { font-size: 16px !important;}
+    }
+}

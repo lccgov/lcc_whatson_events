@@ -1,0 +1,286 @@
+.iconLinks {
+    ul { text-align: center; margin: 0; padding: 0; display: block; }
+    li { margin: 7px; display: inline-block; float: none !important; position: relative;
+        .link, a { width: 60px; height: 60px; -webkit-transition: -webkit-transform .8s ease-in-out; transition: transform .8s ease-in-out; overflow: hidden; border: 2px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; align-content: center; text-decoration: none; }
+        .link:hover, a:hover { -webkit-transform: rotate(360deg); -moz-transform: rotate(360deg); transform: rotate(360deg); }
+        .link:focus, a:focus { border-radius: 50%; }
+        
+        &.email {
+            .link:after, a:after { font-family: FontAwesome; font-size: 28px; color: #ffffff; text-indent: 0; padding: 0 !important; }
+        }
+
+        &.facebook {
+            .link:after, a:after { font-family: FontAwesome; font-size: 28px; color: #ffffff; text-indent: 0; padding: 0 !important; }
+        }
+
+        &.instagram {
+            .link:after, a:after { font-family: FontAwesome; font-size: 28px; color: #ffffff; text-indent: 0; padding: 0 !important; }
+        }
+
+        &.linkedin {
+            .link:after, a:after { font-family: FontAwesome; font-size: 28px; color: #ffffff; text-indent: 0; padding: 0 !important; }
+        }
+
+        &.twitter {
+            .link:after, a:after { font-family: FontAwesome; font-size: 28px; color: #ffffff; text-indent: 0; padding: 0 !important; }
+        }
+
+        &.youtube {
+            .link:after, a:after { font-family: FontAwesome; font-size: 28px; color: #ffffff; text-indent: 0; padding: 0 !important; }
+        }
+
+        &.email:hover:after, &.facebook:hover:after, &.instagram:hover:after, &.linkedin:hover:after, &.twitter:hover:after, &.youtube:hover:after { background: #89c23f; color: #fff; text-decoration: none; }
+
+        &.email.facebook {
+
+            .link:after, a:after { content: "\f09a"; left: 34%; }
+        }
+
+        &.facebook.facebook {
+
+            .link:after, a:after { content: "\f09a"; left: 34%; }
+        }
+
+        &.instagram.facebook {
+
+            .link:after, a:after { content: "\f09a"; left: 34%; }
+        }
+
+        &.linkedin.facebook {
+
+            .link:after, a:after { content: "\f09a"; left: 34%; }
+        }
+
+        &.twitter.facebook {
+
+            .link:after, a:after { content: "\f09a"; left: 34%; }
+        }
+
+        &.youtube.facebook {
+
+            .link:after, a:after { content: "\f09a"; left: 34%; }
+        }
+
+        &.email.twitter {
+
+            .link:after, a:after { content: ""; }
+        }
+
+        &.facebook.twitter {
+
+            .link:after, a:after { content: ""; }
+        }
+
+        &.instagram.twitter {
+
+            .link:after, a:after { content: ""; }
+        }
+
+        &.linkedin.twitter {
+
+            .link:after, a:after { content: ""; }
+        }
+
+        &.twitter.twitter {
+
+            .link:after, a:after { content: ""; }
+        }
+
+        &.youtube.twitter {
+
+            .link:after, a:after { content: ""; }
+        }
+
+        &.email.youtube {
+
+            .link:after, a:after { content: ""; }
+        }
+
+        &.facebook.youtube {
+
+            .link:after, a:after { content: ""; }
+        }
+
+        &.instagram.youtube {
+
+            .link:after, a:after { content: ""; }
+        }
+
+        &.linkedin.youtube {
+
+            .link:after, a:after { content: ""; }
+        }
+
+        &.twitter.youtube {
+
+            .link:after, a:after { content: ""; }
+        }
+
+        &.youtube.youtube {
+
+            .link:after, a:after { content: ""; }
+        }
+
+        &.email.instagram {
+
+            .link:after, a:after { content: "\f16d"; top: 18%; }
+        }
+
+        &.facebook.instagram {
+
+            .link:after, a:after { content: "\f16d"; top: 18%; }
+        }
+
+        &.instagram.instagram {
+
+            .link:after, a:after { content: "\f16d"; top: 18%; }
+        }
+
+        &.linkedin.instagram {
+
+            .link:after, a:after { content: "\f16d"; top: 18%; }
+        }
+
+        &.twitter.instagram {
+
+            .link:after, a:after { content: "\f16d"; top: 18%; }
+        }
+
+        &.youtube.instagram {
+
+            .link:after, a:after { content: "\f16d"; top: 18%; }
+        }
+
+        &.email.email {
+
+            .link:after, a:after { content: "\f0e0"; left: 25%; }
+        }
+
+        &.facebook.email {
+
+            .link:after, a:after { content: "\f0e0"; left: 25%; }
+        }
+
+        &.instagram.email {
+
+            .link:after, a:after { content: "\f0e0"; left: 25%; }
+        }
+
+        &.linkedin.email {
+
+            .link:after, a:after { content: "\f0e0"; left: 25%; }
+        }
+
+        &.twitter.email {
+
+            .link:after, a:after { content: "\f0e0"; left: 25%; }
+        }
+
+        &.youtube.email {
+
+            .link:after, a:after { content: "\f0e0"; left: 25%; }
+        }
+
+        &.email.linkedin {
+
+            .link:after, a:after { content: "\f0e1"; left: 35%; }
+        }
+
+        &.facebook.linkedin {
+
+            .link:after, a:after { content: "\f0e1"; left: 35%; }
+        }
+
+        &.instagram.linkedin {
+
+            .link:after, a:after { content: "\f0e1"; left: 35%; }
+        }
+
+        &.linkedin.linkedin {
+
+            .link:after, a:after { content: "\f0e1"; left: 35%; }
+        }
+
+        &.twitter.linkedin {
+
+            .link:after, a:after { content: "\f0e1"; left: 35%; }
+        }
+
+        &.youtube.linkedin {
+
+            .link:after, a:after { content: "\f0e1"; left: 35%; }
+        }
+    }
+
+    h2 {
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .iconLinks li {
+
+        .link,
+        a {
+            width: 90px;
+            height: 90px;
+        }
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .iconLinks li {
+        margin: 15px;
+
+        .link,
+        a {
+            width: 120px;
+            height: 120px;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .iconLinks li {
+        &.email {
+
+            .link:after, a:after { font-size: 36px; }
+        }
+
+        &.facebook {
+
+            .link:after, a:after { font-size: 36px; }
+        }
+
+        &.instagram {
+
+            .link:after, a:after { font-size: 36px; }
+        }
+
+        &.linkedin {
+
+            .link:after, a:after { font-size: 36px; }
+        }
+
+        &.twitter {
+
+            .link:after, a:after { font-size: 36px; }
+        }
+
+        &.youtube {
+
+            .link:after, a:after { font-size: 36px; }
+        }
+    }
+}
+
+.iconLinks {
+    li { width:unset !important; height:unset !important; border:0 !important; background:none !important;
+
+        a:after {
+            top:50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+        }
+    }
+}

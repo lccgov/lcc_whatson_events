@@ -1,0 +1,32 @@
+p {
+    font-size: 21px;
+
+    &.lead {
+        color: $blackBody;
+        font-size: 19px;
+        line-height: 1.4;
+
+        @media (min-width: 641px) {font-size: 24px; line-height: 1.4; margin-top: 1.05263em;}
+
+        &.header {
+            margin-bottom: 50px;
+        }
+
+        [rel=external].link,
+        a[rel=external] {
+            margin-right: 32px;
+        }
+    }
+}
+
+.ms-rtestate-field {
+    h2, h3 {color:$blackBody;}
+}
+
+h2 { color:$blackBody;
+    &.heading-white {color:$white;}
+}
+
+.text-highlight {
+    &.text-highlight--blue {border-color:$orange; background:rgba($orange, 0.1);}
+}
