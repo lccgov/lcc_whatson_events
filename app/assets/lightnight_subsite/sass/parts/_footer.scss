@@ -2,7 +2,7 @@ footer .footerGlobal>.container-fluid { max-width: 100%; padding-top: 0;
     .dfwp-item .item { padding-top: 0; }
 }
 
-.ln-footer-social-media { background: $purple-light; border-top: 100px solid $white;
+.ln-footer-social-media { background: $purple-four; border-top: 100px solid $white;
     ul.iconLinks { padding-left: 0; margin-left: -7px; margin-right: -7px; }
 }
 
@@ -42,7 +42,7 @@ footer.main { background:$purple-light;
 }
 
 .ln-footer-social-media {
-    &:before { content: ""; display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: -40px; width: 0; height: 0; border-style: solid; border-width: 0 70px 40px 70px; border-color: transparent transparent $purple-light transparent; }
+    &:before { content: ""; display: block; position: absolute; left: 0; right: 0; margin: auto; margin-top: -40px; width: 0; height: 0; border-style: solid; border-width: 0 70px 40px 70px; border-color: transparent transparent $purple-four transparent; }
     img { width: 100%; }
 }
 
